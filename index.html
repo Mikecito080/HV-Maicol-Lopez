@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maicol López — Hoja de Vida</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent: #1a1a2e;
+    --accent2: #16213e;
+    --line: #d0cfc8;
+    --muted: #6b6b6b;
+    --tag-bg: #f0efe8;
+    --tag-text: #2c2c2a;
+    --page: #fafaf7;
+    --text: #1a1a1a;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--page);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 48px auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 56px 64px;
+  }
+
+  /* HEADER */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 36px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: var(--accent);
+  }
+
+  .header .titulo {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.3px;
+  }
+
+  .header .edad {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .contacto {
+    text-align: right;
+    font-size: 12.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  .contacto a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .contacto a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  /* SECTIONS */
+  section {
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* PERFIL */
+  .perfil p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #333;
+  }
+
+  /* EXPERIENCIA */
+  .entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 24px;
+    margin-bottom: 24px;
+  }
+
+  .entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .entry-meta {
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .entry-meta .fecha {
+    font-size: 11.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .entry-meta .empresa {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  .entry-body .cargo {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .entry-body p {
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  /* EDUCACION */
+  .edu-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 24px;
+    margin-bottom: 18px;
+  }
+
+  .edu-entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .edu-meta {
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .edu-meta .anio {
+    font-size: 11.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+  }
+
+  .edu-body .titulo-edu {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+
+  .edu-body .inst {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .badge-cursando {
+    display: inline-block;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    margin-left: 6px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid var(--line);
+    letter-spacing: 0.2px;
+  }
+
+  /* DATOS EXTRA */
+  .datos-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .dato-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .dato-label {
+    font-size: 10.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+
+  .dato-value {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* DIVIDER LINE */
+  .entry + .entry {
+    padding-top: 0;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px dashed var(--line);
+    margin: 20px 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; border: none; padding: 40px 48px; }
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 28px 20px; margin: 0; border: none; }
+    .header { grid-template-columns: 1fr; }
+    .contacto { text-align: left; }
+    .entry, .edu-entry { grid-template-columns: 1fr; }
+    .entry-meta, .edu-meta { text-align: left; margin-bottom: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <h1>Maicol López</h1>
+      <div class="titulo">Desarrollador Junior · Gestión del Talento Humano</div>
+      <div class="edad">23 años · Bogotá, Colombia</div>
+    </div>
+    <div class="contacto">
+      <div>3162883610</div>
+      <div><a href="mailto:Mslopez339@gmail.com">Mslopez339@gmail.com</a></div>
+      <div>Nacionalidad: Colombiana</div>
+      <div>Lic. Conducción: A2</div>
+    </div>
+  </header>
+
+  <!-- PERFIL -->
+  <section class="perfil">
+    <div class="section-title">Perfil profesional</div>
+    <p>
+      Estudiante de Desarrollo de Software (6.° semestre) con experiencia práctica como freelancer en proyectos web y móvil, y sólida trayectoria en áreas de recursos humanos, logística y atención al cliente. Orientado al aprendizaje continuo, con capacidad analítica para la resolución de problemas organizacionales. Combino habilidades técnicas en programación con competencias en gestión del talento humano, comunicación efectiva y liderazgo de equipos.
+    </p>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section>
+    <div class="section-title">Experiencia laboral</div>
+
+    <div class="entry">
+      <div class="entry-meta">
+        <div class="fecha">2023 — presente</div>
+        <div class="empresa">Independiente</div>
+      </div>
+      <div class="entry-body">
+        <div class="cargo">Desarrollador Freelancer</div>
+        <p>Desarrollo de aplicaciones web y móviles para clientes independientes. Implementación de soluciones con HTML, CSS, PHP, MySQL, Java, Python y React. Gestión de proyectos de inicio a fin: levantamiento de requerimientos, diseño, desarrollo y entrega.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="entry">
+      <div class="entry-meta">
+        <div class="fecha">2022 — 2023</div>
+        <div class="empresa">Hotel 104 Art Suites</div>
+      </div>
+      <div class="entry-body">
+        <div class="cargo">Recepcionista / Auditor de Recepción</div>
+        <p>Atención integral al cliente de forma presencial y telefónica. Gestión de procesos de check-in y check-out, asignación de servicios, manejo de caja, facturación y control de pagos con correcta conciliación de ingresos.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="entry">
+      <div class="entry-meta">
+        <div class="fecha">2021 — 2022</div>
+        <div class="empresa">K9 Security LTDA</div>
+      </div>
+      <div class="entry-body">
+        <div class="cargo">Jefe Logístico</div>
+        <p>Gestión de requerimientos internos y de clientes, manejo de inventarios y proveedores, control de órdenes de compra y flota vehicular.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="entry">
+      <div class="entry-meta">
+        <div class="fecha">2020 — 2021</div>
+        <div class="empresa">K9 Security LTDA</div>
+      </div>
+      <div class="entry-body">
+        <div class="cargo">Auxiliar de Recursos Humanos</div>
+        <p>Apoyo en procesos de preselección, selección y contratación de personal. Manejo de bases de datos, gestión del SG-SST, atención a requerimientos internos, actualización de historias laborales y procesamiento de nómina.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section>
+    <div class="section-title">Educación</div>
+
+    <div class="edu-entry">
+      <div class="edu-meta">
+        <div class="anio">2023 — presente</div>
+      </div>
+      <div class="edu-body">
+        <div class="titulo-edu">Tecnología en Desarrollo de Software <span class="badge-cursando">6.° sem.</span></div>
+        <div class="inst">Universitaria Agustiniana — Uniagustiniana · Bogotá</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-meta">
+        <div class="anio">2020 — 2022</div>
+      </div>
+      <div class="edu-body">
+        <div class="titulo-edu">Tecnólogo en Gestión del Talento Humano</div>
+        <div class="inst">SENA</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-meta">
+        <div class="anio">2021</div>
+      </div>
+      <div class="edu-body">
+        <div class="titulo-edu">Inglés Comunicativo B1</div>
+        <div class="inst">Instituto Tecnisistemas</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-meta">
+        <div class="anio">2020</div>
+      </div>
+      <div class="edu-body">
+        <div class="titulo-edu">Diplomado en Marketing Digital</div>
+        <div class="inst">Politécnico Superior de Colombia</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- HABILIDADES TÉCNICAS -->
+  <section>
+    <div class="section-title">Habilidades técnicas</div>
+    <div class="skills-grid">
+      <span class="tag">Python</span>
+      <span class="tag">React</span>
+      <span class="tag">PHP</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">HTML / CSS</span>
+      <span class="tag">Java</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">Flask</span>
+      <span class="tag">Git</span>
+      <span class="tag">REST APIs</span>
+      <span class="tag">Desarrollo móvil</span>
+      <span class="tag">Desarrollo web</span>
+    </div>
+  </section>
+
+  <!-- HABILIDADES BLANDAS -->
+  <section>
+    <div class="section-title">Competencias</div>
+    <div class="skills-grid">
+      <span class="tag">Liderazgo de equipos</span>
+      <span class="tag">Comunicación efectiva</span>
+      <span class="tag">Resolución de problemas</span>
+      <span class="tag">Trabajo en equipo</span>
+      <span class="tag">Gestión del talento humano</span>
+      <span class="tag">SG-SST</span>
+      <span class="tag">Aprendizaje continuo</span>
+      <span class="tag">Atención al cliente</span>
+    </div>
+  </section>
+
+  <!-- DATOS ADICIONALES -->
+  <section>
+    <div class="section-title">Datos adicionales</div>
+    <div class="datos-row">
+      <div class="dato-item">
+        <span class="dato-label">Idiomas</span>
+        <span class="dato-value">Español (nativo) · Inglés B1</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label">Licencia</span>
+        <span class="dato-value">A2</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label">Disponibilidad</span>
+        <span class="dato-value">Inmediata</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-label">Modalidad</span>
+        <span class="dato-value">Presencial · Remoto · Híbrido</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">maicol lópez · hoja de vida · 2026</div>
+
+</div>
+</body>
+</html>
